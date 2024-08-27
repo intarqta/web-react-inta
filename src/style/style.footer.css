@@ -1,0 +1,30 @@
+#footer{
+    background-color: #ECEFF1; 
+    transition: all 5s ease;
+}
+
+#section-redes-sociales{
+    background-color: #f7f8f8;
+}
+
+.me-5{
+    height: 3rem;
+    padding-top: 0.5rem;
+    padding-left: 3rem;
+    margin: 0px;
+}
+#md-5-spam{
+    color: black;
+    font-size: 18px;
+    vertical-align: middle;
+    margin-top: 10px;
+}
+
+#div-redes-right{
+    padding-right: "3rem";
+}
+
+#icon-redes{
+    background-color: #3b5998;
+
+}
