@@ -1,0 +1,22 @@
+.form-row{
+    display: flex;
+}
+#content-form{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    width: 75%;
+    margin: auto;
+}
+
+#validationCustom02{
+    margin-left: 1rem;
+}
+#validationCustom01, #margin {
+    margin-left: 1rem;
+}
+#validationCustom20 {
+    margin-left: 1rem;
+}
+#validationCustom50 {
+    margin-left: 5rem;
+}

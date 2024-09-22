@@ -8,9 +8,9 @@ import { Modal } from 'react-bootstrap';
 import { Button } from 'bootstrap';
 import { AgCharts } from "ag-charts-react";
 import moment from 'moment';
-import { format } from 'date-fns';
+import ExcelExportDataperiodo from './ExportDataPeriodo';
 
-function Date_Range({data, show, onClose}){
+function Date_Range({data, show, onClose, departamento, distrito, lugar}){
     
     const [allData, setAllData] = useState(data);
     const [Data, setData] = useState(data);
@@ -43,10 +43,28 @@ function Date_Range({data, show, onClose}){
       }
 
     console.log('allData',allData)
+    // Resumen de datos anterior al gráfico
+    let totalPeriodo = 0;
+    let lluviaPeriodo = Data.map(data =>{return Number(data[3])});
+    lluviaPeriodo.forEach(function(a){totalPeriodo += a;});
+
     return (
         <>
+        <h5 style={{textAlign:'center', fontFamily:'serif', fontWeight:'bold', color:'#686868', fontSize:'16px'}}>Resumen del periodo seleccionado</h5>
+            <hr />
+            <div style={{display:'flex', justifyContent:'space-between', fontFamily:'serif'}}>
+                <div>
+                    <h6>Distrito: <strong>{distrito}</strong></h6>
+                    <h6>Departamento: <strong>{departamento}</strong></h6>
+                </div>
+                <div>
+                    <h6>Acumulado: <strong>{totalPeriodo}</strong> mm</h6>
+                    <ExcelExportDataperiodo fileName={lugar} data={Data} />
+                </div>
+        </div>
+        <hr />
         <AgCharts options={{data: Data.map(element =>{
-                return {"Fecha": element[2], "Precipitacion":Number.parseInt                                (element[3])}
+                return {"Fecha": moment(element[2]).format('DD/MM/YYYY'), "Precipitacion":Number.parseInt                                (element[3])}
                 }),
                 // Series: Defines which chart type and data to use
                 series: [{ type: "bar", xKey: "Fecha", yKey: "Precipitacion" }],

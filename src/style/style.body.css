@@ -1309,7 +1309,7 @@ svg:not(:root) {
 /* Estilos aplicados al menu prencipal */
 .nav-item{
     padding: 1vh;
-    margin: 0px;
+    margin: auto 0px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 600;
     color: rgb(120, 121, 122);

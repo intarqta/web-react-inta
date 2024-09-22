@@ -4,7 +4,8 @@ import * as XLSX from "xlsx";
 import { Button } from 'react-bootstrap';
 import moment from 'moment';
 
-const ExcelExport = ({ data, fileName }) => {
+const ExcelExportDataperiodo = ({ data, fileName }) => {
+
   data = data.map(d => {return [d[1], moment(d[2]).format('DD/MM/YYYY'), d[3]]});
   const exportToExcel = () => {
     const worksheet = XLSX.utils.json_to_sheet(data, {origin:'A2', skipHeader: true });
@@ -21,4 +22,4 @@ const ExcelExport = ({ data, fileName }) => {
   );
 }
 
-export default ExcelExport;
+export default ExcelExportDataperiodo;

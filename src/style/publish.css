@@ -1,0 +1,19 @@
+#img-card-inicio {
+    width: 100%;
+    height: 8.5rem;
+}
+#content-cards {
+    display: flex;
+    width: 90%;
+    height: auto;
+    padding: 10px;
+    justify-content: space-between;
+    margin: auto;
+}
+
+    
+#card-img-top {
+    width: 100%;
+    height: 10rem;
+    object-fit: fill;
+} 

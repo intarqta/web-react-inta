@@ -5,6 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { DropdownSubmenu, NavDropdownMenu} from "react-bootstrap-submenu";
 import logo from '../IMG/Logo_INTA.png';
 import '../style/style.body.css';
+import { Link } from 'react-router-dom';
 
 
 function Inicio() {
@@ -21,16 +22,23 @@ function Inicio() {
             <Navbar.Collapse className="collapse navbar-collapse" id="navbarSupportedContent">
             <Nav className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a id='nav-link-active' className="nav-link active" aria-current="page" href='/inicio'>Inicio</a>
+                <Link to={'/inicio'} style={{textDecoration:'none', color:'black'}}>
+                Inicio
+                </Link>
               </li>
             <li className="nav-item">
-              <a id='nav-link-active' className="nav-link active" href='nosotros'>Nosotros</a>
+            <Link to={'/nosotros'} style={{textDecoration:'none', color:'black'}}>
+                Nosotros
+                </Link>
             </li>
             <NavDropdownMenu title="Redes de información" className="nav-item dropdown" id="myDropdown">
                   {/* <!-- Sub menú Agricultura --> */}
                   <DropdownSubmenu title='Agricultura'>
-                      <NavDropdown.Item><a className="dropdown-item" href="#">Suelos</a></NavDropdown.Item>
-                      <NavDropdown.Item href='coberturas'><a className="dropdown-item" >Coberturas</a></NavDropdown.Item>
+                      <NavDropdown.Item><Link>
+                      <a className="dropdown-item" href="#">Suelos</a></Link></NavDropdown.Item>
+                      <NavDropdown.Item href='coberturas'>
+                        <Link><a className="dropdown-item" >Coberturas</a></Link>
+                      </NavDropdown.Item>
                       <NavDropdown.Item><a className="dropdown-item" href="#">Ordenanzas</a></NavDropdown.Item>
                   </DropdownSubmenu>
                   {/* <!-- Sub menú Ganadería --> */}
@@ -46,7 +54,9 @@ function Inicio() {
                   </DropdownSubmenu>
                   {/* <!-- Sub menú meterorología  --> */}
                   <DropdownSubmenu title='Meteorología'>
-                      <NavDropdown.Item href='mapapluv'><a className="dropdown-item">Pluviómetros</a></NavDropdown.Item>
+                      <NavDropdown.Item href='mapapluv'><Link to={'/mapapluv'} style={{textDecoration:'none', color:'black'}}>
+                Pluviómetros
+                </Link></NavDropdown.Item>
                       <NavDropdown.Item><a className="dropdown-item" href="#">......</a></NavDropdown.Item>
                       <DropdownSubmenu><a className="dropdown-item" href="#">........ &raquo; </a>
                           <li><a className="dropdown-item" href="#">.....</a></li>
@@ -57,10 +67,14 @@ function Inicio() {
                   </DropdownSubmenu>
               </NavDropdownMenu>
             <li className="nav-item">
-              <a id='nav-link-active' className="nav-link active" href='novedades'>Novedades</a>
+              <Link to={'/publicaciones'} style={{textDecoration:'none', color:'black'}} >
+              Publicaciones
+              </Link>
             </li>
             <li className="nav-item">
-              <a id='nav-link-active' className="nav-link active" href='contacto'>Contacto</a>
+            <Link to={'/contacto'} style={{textDecoration:'none', color:'black'}} >
+              Contacto
+              </Link>
             </li>
           </Nav>
               <form className="d-flex" role="search">
