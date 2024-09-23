@@ -6,16 +6,16 @@
 
 import React, { useState } from "react";
 // import styled from 'styled-components';
-import { Paper, Typography, IconButton } from "@material-ui/core";
+import { Paper, Typography, IconButton } from "@mui/material"; 
 import { useMapEvents } from "react-leaflet";
 import { Util } from "leaflet";
-import Accordion from "@material-ui/core/Accordion";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import LayersIcon from "@material-ui/icons/Layers";
+import Accordion from "@mui/material/Accordion";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import LayersIcon from '@mui/icons-material/Layers';
+import ExpandMoreIcon from "@mui/icons-material/Expand";
 import lodashGroupBy from "lodash.groupby";
 import { LayersControlProvider } from "./LayerControlContext";
 

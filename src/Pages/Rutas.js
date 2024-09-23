@@ -3,13 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 import Loading from '../components/Loading';
-// import Layout from '../components/Layout';
-// import Nosotros from './Nosotros'
-// import Inicio from './Inicio'
-// import Novedades from './novedades'
-// import Contacto from './Contacto'
-// import MapaPluv from './Mapa'
-// import Coberturas from './coberturas';
 const Layout = lazy(() => import('../components/Layout'));
 const Nosotros = lazy(() => import('./Nosotros'));
 const Inicio = lazy(() => import('./Inicio'));

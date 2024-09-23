@@ -11,6 +11,7 @@ import marker from '../IMG/cloud_img.svg';
 import fetchWeather from "../components/fetchWeather";
 import ReactDOMServer from "react-dom/server";
 import LayerControl, { GroupedLayer } from "../components/LayerControl";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const myIcon = new L.Icon({
     iconUrl: marker,
@@ -61,28 +62,37 @@ const MapComp = () => {
         const timeout = setTimeout(() =>{
             fetch(process.env.REACT_APP_URL_SHEETS_PLUV)
             .then(response => response.json())
-            .then(result => setUserData(result));
-            // Craer una variable con los datos de cada pluviometro
-            pluviometros.map((feature)=>{
-                fetchWeather({lon:feature.properties.coords[1] , lat:feature.properties.coords[0]}).then(result =>{
-                    let listWeather = dataWeather;
-                    listWeather.push({'Nombre':feature.properties.Nombre, 'data':result[0]});
-                    setdataWeather(listWeather);                            
-                })});
+            .then(result => 
+              setUserData(result));
             setLoading(false);
-            }, 3000);
+            }, 5000);
             return () => clearTimeout(timeout) 
-   },[])
-
-   //  Este condicional permite mantener el component Loading mientras se esperan los datos  
+   },[]);
+  // export const fetch50CityData = createAsyncThunk(
+   const doSomething = async() =>{
+     pluviometros?.map((feature)=>{
+      fetchWeather({lon:feature.properties.coords[1] , lat:feature.properties.coords[0]}).then(result =>{
+          let listWeather = dataWeather;
+          listWeather.push({'Nombre':feature.properties.Nombre, 'data':result[0]});
+          setdataWeather(listWeather);                            
+      })});
+    }
+    
+    useEffect(() =>{
+        doSomething();
+    },[])
+  // )
+  
+   //  Este condicional permite mantener el component Loading mientras se esperan los datos
    if(loading) return <Cargando />;
         
     const datos = userData.values
     // Está función evita que la página se carge hasta obtener los datos de kobo
     if(!datos) return;
-  
+
     const handleClose = () => setShow(false);
-    
+    // Aguardar mientras se cargan los datos meteorologicos
+    // if(dataWeather[0].data.length > 300) return;
     return (
         <MapContainer style={{ width: "100%", height: "100vh" ,zIndex:0}} center={[-31.5, -60.5]} zoom={7}>
           <LayerControl position="topright">

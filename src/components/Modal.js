@@ -28,14 +28,14 @@ function CustomModal({ show, onClose, weather}) {
                                     <Tab eventKey={"modal-pluviometro"} title="Pluviómetro">
                                         <div className="container">
                                         <TotalAnual datos={show.data} departamento={show.Departamento} distrito={show.Distrito} weather={datosWeather} />
-                                        
+                                        <h6 style={{textAlign:'center', fontFamily:'serif', fontWeight:'bold', color:'#686868'}}>Últimos registros</h6>                                        
                                         <Table striped bordered hover>
                                             <thead>
                                                 <tr>
-                                                    <th style={{textAlign:'center'}}>
-                                                        Fecha
+                                                    <th style={{textAlign:'center', fontSize:'14px'}}>
+                                                        <h6>Fecha</h6>
                                                     </th>
-                                                    <th style={{textAlign:'center'}}>
+                                                    <th style={{textAlign:'center', fontSize:'14px'}}>
                                                         Precipitación
                                                     </th>
                                                 </tr>
@@ -46,8 +46,8 @@ function CustomModal({ show, onClose, weather}) {
                                                 show.data.slice(-5).map(Element =>{
                                                     return( 
                                                          <tr>
-                                                            <td style={{textAlign:'center'}}>{moment(Element[2]).format('DD/MM/YYYY')}</td>
-                                                            <td style={{textAlign:'center'}}>{Element[3]}</td>
+                                                            <td style={{textAlign:'center', fontSize:'14px'}}>{moment(Element[2]).format('DD/MM/YYYY')}</td>
+                                                            <td style={{textAlign:'center', fontSize:'14px'}}>{Element[3]}</td>
                                                          </tr>
                                                          
                                                         )

@@ -24,20 +24,18 @@ function TotalAnual({datos, distrito, departamento, weather}){
      numerosMes.forEach(function(a){totalMes += a;});
 
      return(
-        <>  <h5 style={{textAlign:'center', fontFamily:'serif', fontWeight:'bold', color:'#686868'}}>Resumen del pliviómetro</h5>
+        <>  <h6 style={{textAlign:'center', fontFamily:'serif', fontWeight:'bold', color:'#686868'}}>Resumen del pliviómetro</h6>
             <hr />
             <div style={{display:'flex', justifyContent:'space-between', fontFamily:'serif', }}>
                 <div>
-                    <h5>Distrito: <strong>{distrito}</strong></h5>
-                    <h5>Departamento: <strong>{departamento}</strong></h5>
+                    <h6>Distrito: <strong>{distrito}</strong></h6>
+                    <h6>Departamento: <strong>{departamento}</strong></h6>
+                    <h6>Temperatura: <strong>{weather[0]?.data.main['temp']}</strong> °C</h6>
                 </div>
                 <div>
-                    <h5>Total mes: <strong>{totalMes}</strong> mm</h5>
-                    <h5>Total año: <strong>{totalAño}</strong> mm</h5>
-                </div>
-                <div>
-                    <h5>Temperatura: <strong>{weather[0]?.data.main['temp']}</strong> °C</h5>
-                    <h5>Viento: <strong>{weather[0]?.data.wind['speed']}</strong> k/h</h5>
+                    <h6>Total mes: <strong>{totalMes}</strong> mm</h6>
+                    <h6>Total año: <strong>{totalAño}</strong> mm</h6>
+                    <h6>Viento: <strong>{weather[0]?.data.wind['speed']}</strong> k/h</h6>
                 </div>
             </div>
             <hr />
